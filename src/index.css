@@ -1,0 +1,79 @@
+@import 'tailwindcss';
+
+/* Design tokens: graphite surfaces, one warm accent. Track colours are semantic. */
+@theme {
+  --color-bg: #0d0f12;
+  --color-panel: #14171c;
+  --color-panel2: #1a1e25;
+  --color-raise: #222731;
+  --color-line: #262b34;
+  --color-fg: #e8eaef;
+  --color-muted: #8b93a1;
+  --color-accent: #ff6a3d;
+  --color-accent-fg: #1a0a04;
+  --color-ok: #4ade80;
+  --color-warn: #fbbf24;
+  --color-bad: #f87171;
+
+  --color-t-video: #3b82f6;
+  --color-t-audio: #22c55e;
+  --color-t-text: #f59e0b;
+  --color-t-overlay: #a855f7;
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Mono', Menlo, Consolas, monospace;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+/* Scrollable pages (home, quick editor) opt in. */
+.page-scroll {
+  height: 100%;
+  overflow-y: auto;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-accent) 40%, transparent);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #343b47 transparent;
+}
+
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+
+input[type='range'] {
+  accent-color: var(--color-accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
